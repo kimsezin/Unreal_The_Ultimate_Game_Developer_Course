@@ -15,7 +15,7 @@ public:
 	// Sets default values for this actor's properties
 	AFloater();
 
-	UPROPERTY(VisibleAnywhere, Category = "ActorMeshComponent")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ActorMeshComponent")
 	UStaticMeshComponent* StaticMesh;
 
 	// Location used by SetActorLocation() when BeginPlay() is called
