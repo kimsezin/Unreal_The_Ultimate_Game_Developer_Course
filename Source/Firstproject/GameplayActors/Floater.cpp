@@ -33,6 +33,10 @@ void AFloater::BeginPlay()
 		SetActorLocation(InitialLocation);
 	}
 	
+	FHitResult HitResult;
+	FVector LocalOffset = FVector(200.0f, 0.f, 0.f);
+
+
 	
 }
 
@@ -48,7 +52,10 @@ void AFloater::Tick(float DeltaTime)
 
 		FVector HitLocation = HitResult.Location;
 
-		UE_LOG(LogTemp, Warning, TEXT("Hit Location : X = %f, Y = %f, Z = %f"), HitLocation.X, HitLocation.Y, HitLocation.Z);
 	}
+
+	FRotator Rotation = FRotator(0.0f, 1.0f, 0.0f);
+
+	AddActorWorldRotation(Rotation);
 }
 
