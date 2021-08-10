@@ -24,6 +24,7 @@ AFloater::AFloater()
 	InitialTorque = FVector(2000000.0f, 0.f, 0.f);
 
 	RunningTime = 0.f;
+
 	A = 0.0f;
 	B = 0.0f;
 	C = 0.0f;
@@ -35,7 +36,7 @@ void AFloater::BeginPlay()
 {
 	Super::BeginPlay();
 
-	float InitialX = FMath::FRandRange(-500.f,500.f);
+	float InitialX = FMath::FRandRange(500.f,500.f);
 	float InitialY = FMath::FRandRange(-500.f,500.f);
 	float InitialZ = FMath::FRandRange(0.f,500.f);
 
