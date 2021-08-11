@@ -18,8 +18,10 @@ ACritter::ACritter()
 
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera")); // 카메라만들어 root에 붙임
 	Camera->SetupAttachment(GetRootComponent());
-	Camera->SetRelativeLocation(FVector(-300.f, 0.f, 300.f);
+	Camera->SetRelativeLocation(FVector(-300.f, 0.f, 300.f));
+	Camera->SetRelativeRotation(FRotator(-45.f, 0.f, 0.f));
 
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
 
 // Called when the game starts or when spawned
