@@ -56,11 +56,11 @@ void ACritter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ACritter::MoveForward(float Value)
 {
-	CurrentVelocity.X = FMath::Clamp(Value, -1.f, 1.0f) * MaxSpeed; //1~-1사이의 값으로 비율에 맞게 설정
+	CurrentVelocity.X = FMath::Clamp(Value, -1.f, 1.f) * MaxSpeed; //1~-1사이의 값으로 비율에 맞게 설정
 
 }
 
 void ACritter::MoveRight(float Value)
 {
-	CurrentVelocity.Y = FMath::Clamp(Value, -1.f, 1.0f) * MaxSpeed;
+	CurrentVelocity.Y = FMath::Clamp(Value, -1.f, 1.f) * MaxSpeed;
 }
