@@ -13,7 +13,7 @@ ACritter::ACritter()
 	PrimaryActorTick.bCanEverTick = true;
 
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent")); // 이 pawn이 쓰는 컴포넌트를 가리키는 것 같음
-	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent")); // 루트에 붙여줄 Meshcomponent 제작
+	MeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComponent")); // 루트에 붙여줄 Meshcomponent 제작
 	MeshComponent->SetupAttachment(GetRootComponent()); // 붙여줌
 
 
@@ -22,7 +22,7 @@ ACritter::ACritter()
 	Camera->SetRelativeLocation(FVector(-300.f, 0.f, 300.f));
 	Camera->SetRelativeRotation(FRotator(-45.f, 0.f, 0.f));
 
-	AutoPossessPlayer = EAutoReceiveInput::Player1; //게임 시점 바꾸기
+	//AutoPossessPlayer = EAutoReceiveInput::Player1; //게임 시점 바꾸기
 
 	CurrentVelocity = FVector(0.f);
 
