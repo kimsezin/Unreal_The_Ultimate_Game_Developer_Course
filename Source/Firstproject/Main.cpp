@@ -7,6 +7,8 @@
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GamePlayStatics.h"
 #include "Engine/World.h"
+#include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AMain::AMain()
@@ -20,6 +22,9 @@ AMain::AMain()
 	CameraBoom->TargetArmLength = 600.0f; // 카메라와 플레이어간 거리
 	CameraBoom->bUsePawnControlRotation = true; // 컨트롤러 기준으로 회전
 
+	// Set size for collsion capsule
+	GetCapsuleComponent()->SetCapsuleSize(48.f, 105.f);
+
 	// 따라다니는 카메라 생성
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); //원래 스프링암에는 소켓이 가장 끝에 붙어있음, 스프링암에 카메라 부착
@@ -29,6 +34,19 @@ AMain::AMain()
 	// Set our turn rate for input
 	BaseTurnRate = 65.f;
 	BaseLookUpRate = 65.f;
+
+	// 컨트롤러와 함께 회전시키지 않는다
+	// 카메라에 맞게 조정
+	bUseControllerRotationYaw = false;
+	bUseControllerRotationPitch = false;
+	bUseControllerRotationRoll = false;
+
+	// 캐릭터 움직임 설정
+	GetCharacterMovement()->bOrientRotationToMovement = true; // 캐릭터 자동회전??
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.f, 0.0f); ///...at this rotation rate
+	GetCharacterMovement()->JumpZVelocity = 650.f;
+	GetCharacterMovement()->AirControl = 0.2f;
+
 
 }
 
